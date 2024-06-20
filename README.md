@@ -3,19 +3,19 @@
 https://drive.google.com/file/d/1uiIeBKLyhpbBo_Fll-AyAQE03qbQ7twA/view?usp=sharing 
 <p>Обычные проверки в Postman можно заменить либо описав их в корне проекта и используя как функции, либо как скрипты через import</p>
 <p>К примеру так выглядит импорт</p>
-![image](https://github.com/terikaisterika/work_with_collection/assets/48588741/10e9756a-2d17-4282-bdca-92fb3953e5d0)
+<img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/10e9756a-2d17-4282-bdca-92fb3953e5d0">
 <p>Создаются через эту ссылку:</p>
-![image](https://github.com/terikaisterika/work_with_collection/assets/48588741/848b7c49-ff4c-4b65-8e92-f84c27e7a997)
+<img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/848b7c49-ff4c-4b65-8e92-f84c27e7a997">
 <p>Пишутся приблизительно так:</p>
-![image](https://github.com/terikaisterika/work_with_collection/assets/48588741/eca3b356-a47c-4179-83f3-2bb3ba7860a3).
+<img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/eca3b356-a47c-4179-83f3-2bb3ba7860a3">
 <p>Работа через функции в корне проекта.</p>
 <p>Проще всего общие проверки закинуть в корень проекта через переменную:</p>
-![image](https://github.com/terikaisterika/work_with_collection/assets/48588741/d65f09f8-5491-4f12-a6de-e0f17fddaf41)
+<img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/d65f09f8-5491-4f12-a6de-e0f17fddaf41">
 <p>Переменная должна быть без var и let.</p>
 <p>В тестах это будет выглядеть так: </p>
-![image](https://github.com/terikaisterika/work_with_collection/assets/48588741/be574ca6-e546-42fd-a9ba-9d9cceb0efe6)
+<img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/be574ca6-e546-42fd-a9ba-9d9cceb0efe6">
 <p>Можно часть утилит, которые будут как подготовительные выводить в отдельные объекты, чтобы они не засоряли проверки.</p>
-![image](https://github.com/terikaisterika/work_with_collection/assets/48588741/a3f57e67-eff9-4659-9bf2-7477bf205a70)
+<img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/a3f57e67-eff9-4659-9bf2-7477bf205a70">
 <p>В каких случаях авто проверки актуальны:</p>
 <ul>
   <li>Для поддержки коллекции. После того, как прошло основное тестирование (перепроверили отправку данных с валидными/ не валидными значениями, разобрались, какие данные не должны дублироваться, так как возможно придется использовать динамические переменные). Составили основную логическую связку. К примеру в коллекции из видео всего 6 методов, но проверка составлена таким образом</li>
@@ -40,8 +40,27 @@ https://drive.google.com/file/d/1uiIeBKLyhpbBo_Fll-AyAQE03qbQ7twA/view?usp=shari
   <li>Под каждую среду тестирования свое окружение. Как минимум baseUrl везде должен быть разный</li>
   <li>Переменные лучше всего сохранять в environment (pm.environment.set("PetResponse", pm.response.json()). Удобно посмотреть текущее состояние и те переменные, которые общепринятые, чтобы не городить лишнего.</li>
   <li>Если в pm.request.body используется JSON с переменными, то валидного JSON.parse не будет, т.к текст берется до отправки, т.е. когда еще не достали значение переменных</li>
-  ![image](https://github.com/terikaisterika/work_with_collection/assets/48588741/588c9cc3-be89-4ae4-8e2c-deab84635ae7)
+  <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/588c9cc3-be89-4ae4-8e2c-deab84635ae7">
   <li>С большими числами могут быть проблемы. Т.е. если число больше Number.MAX_SAFE_INTEGER могут вести себя не очень, поэтому их придется приводить либо к bigint, либо к текстовым значениям.</li>
+</ul>
+<p>Скрипты из корня проекта довольно легко переносить в другие проекты. Чаще всего основных проверок не так много. Их легче поддерживать в одном месте.</p>.
+<p>Примеры из проекта.</p>
+<ul>
+  <li>Проверка статуса. По дефолту 200 код, остальные дописываем руками</li>
+  <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/46671180-c5fc-480b-a524-0133655d5eb5"/>
+  <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/8bf221e3-0296-49ad-91c3-6950258dc2b6"/>
+  <li>
+    Проверка заголовка:
+  </li>
+  <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/38403e58-b2b5-4ff5-971b-4908154d9ecc"/>
+  <li>Проверка, что элемент в списке в единственном экземпляре. Сложности могут возникнуть, если списки слишком большие и разбиты по страницам.</li>
+  <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/79e4d0f6-3484-4292-ab1a-daef1f6e63bb"/>
+  <li>
+    Проверка наличия свойства в ответе формата json. Тут используются дополнительные функции. Скорее всего можно сделать легче, но я пока не придумала. Разбирает пути в формате '.photoUrls[0]', т.е. как обычный путь.
+    
+  </li>
+  <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/6232ba33-273f-4a5b-9ffc-1f03b7b0794e"/>
+  <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/f34a8c8a-653a-4f2a-91bb-c194dce92a76"/>
 </ul>
 
 
