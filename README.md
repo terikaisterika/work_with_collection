@@ -1,14 +1,14 @@
 <h1>Тесты в Postman</h1>
 <h2>Пример работы с коллекцией (видео ниже)</h2>
 https://drive.google.com/file/d/1uiIeBKLyhpbBo_Fll-AyAQE03qbQ7twA/view?usp=sharing 
-<p>Обычные проверки в Postman можно заменить либо описав их в корне проекта и используя как функции, либо как скрипты через import</p>
-<p>К примеру так выглядит импорт</p>
+<p>Обычные проверки в Postman (проверки статусов, важных свойств в ответе, заголовков) можно заменить либо описав их в корне проекта и используя как функции, либо как скрипты через import</p>
+<h3>К примеру так выглядит импорт</h3>
 <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/10e9756a-2d17-4282-bdca-92fb3953e5d0">
 <p>Создаются через эту ссылку:</p>
 <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/848b7c49-ff4c-4b65-8e92-f84c27e7a997">
 <p>Пишутся приблизительно так:</p>
 <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/eca3b356-a47c-4179-83f3-2bb3ba7860a3">
-<p>Работа через функции в корне проекта.</p>
+<h3>Работа через функции в корне проекта.</h3>
 <p>Проще всего общие проверки закинуть в корень проекта через переменную:</p>
 <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/d65f09f8-5491-4f12-a6de-e0f17fddaf41">
 <p>Переменная должна быть без var и let.</p>
