@@ -6,7 +6,7 @@ https://drive.google.com/file/d/1uiIeBKLyhpbBo_Fll-AyAQE03qbQ7twA/view?usp=shari
 <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/10e9756a-2d17-4282-bdca-92fb3953e5d0">
 <p>Создаются через эту ссылку:</p>
 <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/848b7c49-ff4c-4b65-8e92-f84c27e7a997">
-<p>Пишутся приблизительно так:</p>
+<p>Пишутся приблизительно так (тут описано получение id в условиях проблем с Number.MAX_SAFE_INTEGER):</p>
 <img src="https://github.com/terikaisterika/work_with_collection/assets/48588741/eca3b356-a47c-4179-83f3-2bb3ba7860a3">
 <h3>Работа через функции в корне проекта.</h3>
 <p>Проще всего общие проверки закинуть в корень проекта через переменную:</p>
